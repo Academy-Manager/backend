@@ -14,14 +14,24 @@ public class ModuleDTO extends EntityDTO {
 	private Set<Theme> themes = new HashSet<Theme>();
 	private String name;
 	private List<Long> teacherIds= new ArrayList<Long>();
+	private String evaluationSubjects;
 	
 	public ModuleDTO() {}
 
-	public ModuleDTO(List<Long> evaluationIds, Set<Theme> themes, String name, List<Long> teacherIds) {
+	public ModuleDTO(List<Long> evaluationIds, Set<Theme> themes, String name, List<Long> teacherIds, String evaluationSubjects) {
 		this.evaluationIds = evaluationIds;
 		this.themes = themes;
 		this.name = name;
 		this.teacherIds = teacherIds;
+		this.evaluationSubjects = evaluationSubjects;
+	}
+
+	public String getEvaluationSubjects() {
+		return evaluationSubjects;
+	}
+
+	public void setEvaluationSubjects(String evaluationSubjects) {
+		this.evaluationSubjects = evaluationSubjects;
 	}
 
 	public List<Long> getEvaluationIds() {

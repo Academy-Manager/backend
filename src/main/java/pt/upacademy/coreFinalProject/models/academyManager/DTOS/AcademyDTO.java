@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import pt.upacademy.coreFinalProject.models.academyManager.Module;
 import pt.upacademy.coreFinalProject.models.academyManager.Status;
 import pt.upacademy.coreFinalProject.models.core.DTOS.EntityDTO;
 
@@ -14,20 +13,20 @@ public class AcademyDTO extends EntityDTO {
     private String startDate;
     private String endDate;
     private String edName;
-    private Set<Module> modules;
+    private Set<ModuleDTO> moduleDTOs;
     private List<Long> studentsIds = new ArrayList<Long>();
     private Status status;
     private String warning;			 //GONÇALO
     private String usefulInfo;		 //GONÇALO
     private String academyType;		 //GONÇALO
     
-    public void Academy(String client, String startDate, String endDate, String edName, Set<Module> modules, List<Long> studentsIds, Status status, String warning, 
+    public void Academy(String client, String startDate, String endDate, String edName, Set<ModuleDTO> moduleDTOs, List<Long> studentsIds, Status status, String warning, 
     		String usefulInfo) {
 		this.setClient(client);
 		this.setStartDate(startDate);
 		this.setEndDate(endDate);
 		this.setEdName(edName);
-		this.setModules(modules);
+		this.setModuleDTOs(moduleDTOs);
 		this.setStudentsIds(studentsIds);
 		this.setStatus(status);
 		this.setWarning(warning);			//GONÇALO
@@ -75,12 +74,12 @@ public class AcademyDTO extends EntityDTO {
 		this.edName = edName;
 	}
 
-	public Set<Module> getModules() {
-		return modules;
+	public Set<ModuleDTO> getModuleDTOs() {
+		return moduleDTOs;
 	}
 
-	public void setModules(Set<Module> modules) {
-		this.modules = modules;
+	public void setModuleDTOs(Set<ModuleDTO> modules) {
+		this.moduleDTOs = modules;
 	}
 
 	public List<Long> getStudentsIds() {

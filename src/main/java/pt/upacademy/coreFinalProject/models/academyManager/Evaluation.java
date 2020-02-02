@@ -2,6 +2,7 @@ package pt.upacademy.coreFinalProject.models.academyManager;
 
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
@@ -24,7 +25,7 @@ public class Evaluation extends EntityRoot {
 
 	@ManyToOne
 	private AccountAcademy account;
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	//@OrderBy("sdgsdg")
 	private Set<Grade> grades;
 	private String comment;

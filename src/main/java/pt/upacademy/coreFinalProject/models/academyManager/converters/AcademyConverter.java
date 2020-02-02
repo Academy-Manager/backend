@@ -15,6 +15,9 @@ import pt.upacademy.coreFinalProject.services.academyManager.ModuleService;
 public class AcademyConverter extends EntityConverter<Academy, AcademyDTO> {
 	
 	@Inject
+	protected ModuleConverter moduleConverter;
+	
+	@Inject
 	protected ModuleService moduleService;
 	
 	@Inject
@@ -35,7 +38,7 @@ public class AcademyConverter extends EntityConverter<Academy, AcademyDTO> {
 		academy.setEndDate(localDate1);
 		}
 		academy.setEdName(dto.getEdName());
-		academy.setModules(dto.getModules());
+		academy.setModules(dto.getModuleDTOs().stream().map(moduleDto -> moduleConverter.toEntity(moduleDto)).collect(Collectors.toSet()));
 		academy.setStudents(dto.getStudentsIds().stream().map(studentId -> accountService.get(studentId)).collect(Collectors.toSet()));
 		academy.setStatus(dto.getStatus());
 		academy.setWarning(dto.getWarning());  		  		 //GONCALO
@@ -62,7 +65,7 @@ public class AcademyConverter extends EntityConverter<Academy, AcademyDTO> {
 		}
 		academyDTO.setEdName(entity.getEdName());
 		academyDTO.setStatus(entity.getStatus());
-		academyDTO.setModules(entity.getModules());
+		academyDTO.setModuleDTOs(entity.getModules().stream().map(module -> moduleConverter.toDTO(module)).collect(Collectors.toSet()));
 		academyDTO.setStudentsIds(entity.getStudents().stream().map(student -> student.getId()).collect(Collectors.toList()));
 		academyDTO.setWarning(entity.getWarning());  		 	//GONCALO
 		academyDTO.setUsefulInfo(entity.getUsefulInfo());     	//GONCALO
