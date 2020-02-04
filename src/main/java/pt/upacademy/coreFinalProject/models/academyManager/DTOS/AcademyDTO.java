@@ -1,6 +1,7 @@
 package pt.upacademy.coreFinalProject.models.academyManager.DTOS;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -13,7 +14,7 @@ public class AcademyDTO extends EntityDTO {
     private String startDate;
     private String endDate;
     private String edName;
-    private Set<ModuleDTO> moduleDTOs;
+    private Set<ModuleDTO> moduleDTOs = new HashSet<ModuleDTO>();
     private List<Long> studentsIds = new ArrayList<Long>();
     private Status status;
     private String warning;			 //GONÇALO
