@@ -11,7 +11,8 @@ import pt.upacademy.coreFinalProject.models.core.EntityRoot;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = MissedClass.GET_ALL_MISSEDCLASSES_BY_ID, query = "SELECT m FROM MissedClass m WHERE m.accountId = :accountId")
+	@NamedQuery(name = MissedClass.GET_ALL_MISSEDCLASSES_BY_ID, query = "SELECT m FROM MissedClass m WHERE m.accountId = :accountId"),
+	@NamedQuery(name = MissedClass.GET_ALL_MISSEDCLASSES_BY_DATE, query = "SELECT m FROM MissedClass m WHERE m.date = :date")	
 })
 public class MissedClass extends EntityRoot {
 	
@@ -19,9 +20,10 @@ public class MissedClass extends EntityRoot {
 	
 	
 	public static final String GET_ALL_MISSEDCLASSES_BY_ID = "getAllMissedClassesById";
+	public static final String GET_ALL_MISSEDCLASSES_BY_DATE = "getAllMissedClassesByDate";
 	
 	private int accountId;
-	private LocalDate data;
+	private long date;
 	private Boolean justified;
 	
 
@@ -31,11 +33,11 @@ public class MissedClass extends EntityRoot {
 	public void setAccountId(int accountId) {
 		this.accountId = accountId;
 	}
-	public LocalDate getData() {
-		return data;
+	public long getDate() {
+		return date;
 	}
-	public void setData(LocalDate data) {
-		this.data = data;
+	public void setDate(long date) {
+		this.date = date;
 	}
 	public Boolean getJustified() {
 		return justified;
@@ -49,10 +51,10 @@ public class MissedClass extends EntityRoot {
 	public MissedClass() {
 		super();
 	}
-	public MissedClass(int userId, LocalDate data, Boolean justified) {
+	public MissedClass(int userId, long date, Boolean justified) {
 		super();
 		this.accountId = userId;
-		this.data = data;
+		this.date = date;
 		this.justified = justified;
 	}
 	

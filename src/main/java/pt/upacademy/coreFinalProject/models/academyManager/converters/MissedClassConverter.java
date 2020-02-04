@@ -12,14 +12,14 @@ public class MissedClassConverter extends EntityConverter<MissedClass,MissedClas
 	@Override
 	public MissedClass toEntity(MissedClassDTO dto) {
 		MissedClass mclass = new MissedClass();
-		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//		DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		mclass.setId(dto.getId());
 		mclass.setAccountId(dto.getAccountId());
 		mclass.setJustified(dto.getJustified());
-		if(dto.getData() != null) {
-		LocalDate localDate1 = LocalDate.parse(dto.getData(),dateTimeFormatter);
-		mclass.setData(localDate1);
-		}
+//		if(dto.getData() != null) {
+//		LocalDate localDate1 = LocalDate.parse(dto.getData(),dateTimeFormatter);
+		mclass.setDate(dto.getDate());
+//		}
 		return mclass;
 	}
 
@@ -31,10 +31,10 @@ public class MissedClassConverter extends EntityConverter<MissedClass,MissedClas
 		mclass.setId(entity.getId());
 		mclass.setAccountId(entity.getAccountId());
 		mclass.setJustified(entity.getJustified());
-		if(entity.getData() != null) {
-		String startDateString = entity.getData().format(formatter);
-		mclass.setData(startDateString);
-		}
+//		if(entity.getData() != null) {
+//		String startDateString = entity.getData().format(formatter);
+		mclass.setDate(entity.getDate());
+//		}
 		return mclass;
 	}
 
