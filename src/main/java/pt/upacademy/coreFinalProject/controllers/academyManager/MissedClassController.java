@@ -55,8 +55,8 @@ public class MissedClassController extends EntityControllerDTO<MissedClassServic
 	@GET
 	@Path("/date/{date}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<MissedClassDTO> getallbyId(@PathParam("date") long date) {
-		return service.getAllMissedByDate(date).stream().map(E -> converter.toDTO(E)).collect(Collectors.toList());
+	public List<MissedClassDTO> getallbyId(@PathParam("date") String verifyDaily) {
+		return service.getAllMissedByDate(verifyDaily).stream().map(E -> converter.toDTO(E)).collect(Collectors.toList());
 	}
 	
 	@PUT

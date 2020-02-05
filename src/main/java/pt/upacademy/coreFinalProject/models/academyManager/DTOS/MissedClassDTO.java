@@ -7,9 +7,16 @@ public class MissedClassDTO extends EntityDTO {
 	private int accountId;
 	private long date;
 	private Boolean justified;
+	private String verifyDaily;
 	
 	
 
+	public String getVerifyDaily() {
+		return verifyDaily;
+	}
+	public void setVerifyDaily(String verifyDaily) {
+		this.verifyDaily = verifyDaily;
+	}
 	public int getAccountId() {
 		return accountId;
 	}
@@ -34,19 +41,21 @@ public class MissedClassDTO extends EntityDTO {
 	public MissedClassDTO() {
 		super();
 	}
-	
-	
-	public MissedClassDTO(int userId, long date, Boolean justified) {
+	public MissedClassDTO(int accountId, long date, Boolean justified, String verifyDaily) {
 		super();
-		this.accountId = userId;
+		this.accountId = accountId;
 		this.date = date;
 		this.justified = justified;
+		this.verifyDaily = verifyDaily;
 	}
 	@Override
 	public String toString() {
-		return "MissedClassDTO [userId=" + accountId + ", data=" + date + ", justified=" + justified + "]";
+		return "MissedClassDTO [accountId=" + accountId + ", date=" + date + ", justified=" + justified
+				+ ", verifyDaily=" + verifyDaily + "]";
 	}
 	
+	
+
 	
 	
 }

@@ -1,7 +1,5 @@
 package pt.upacademy.coreFinalProject.models.academyManager;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -12,7 +10,7 @@ import pt.upacademy.coreFinalProject.models.core.EntityRoot;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = MissedClass.GET_ALL_MISSEDCLASSES_BY_ID, query = "SELECT m FROM MissedClass m WHERE m.accountId = :accountId"),
-	@NamedQuery(name = MissedClass.GET_ALL_MISSEDCLASSES_BY_DATE, query = "SELECT m FROM MissedClass m WHERE m.date = :date")	
+	@NamedQuery(name = MissedClass.GET_ALL_MISSEDCLASSES_BY_DATE, query = "SELECT m FROM MissedClass m WHERE m.verifyDaily = :verifyDaily")	
 })
 public class MissedClass extends EntityRoot {
 	
@@ -25,8 +23,15 @@ public class MissedClass extends EntityRoot {
 	private int accountId;
 	private long date;
 	private Boolean justified;
+	private String verifyDaily;
 	
 
+	public String getVerifyDaily() {
+		return verifyDaily;
+	}
+	public void setVerifyDaily(String verifyDaily) {
+		this.verifyDaily = verifyDaily;
+	}
 	public int getAccountId() {
 		return accountId;
 	}
@@ -51,12 +56,14 @@ public class MissedClass extends EntityRoot {
 	public MissedClass() {
 		super();
 	}
-	public MissedClass(int userId, long date, Boolean justified) {
+	public MissedClass(int accountId, long date, Boolean justified, String verifyDaily) {
 		super();
-		this.accountId = userId;
+		this.accountId = accountId;
 		this.date = date;
 		this.justified = justified;
+		this.verifyDaily = verifyDaily;
 	}
+
 	
 	
 }

@@ -20,8 +20,8 @@ public class MissedClassService extends EntityService<MissedClassRepository,Miss
 		return repository.getAllMissedById(accountId);
 	}
 	
-	public List<MissedClass> getAllMissedByDate(long date) {
-		return repository.getAllMissedByDate(date);
+	public List<MissedClass> getAllMissedByDate(String verifyDaily) {
+		return repository.getAllMissedByDate(verifyDaily);
 	}
 	
 }

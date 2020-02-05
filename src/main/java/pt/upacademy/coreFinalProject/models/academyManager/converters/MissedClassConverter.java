@@ -19,6 +19,7 @@ public class MissedClassConverter extends EntityConverter<MissedClass,MissedClas
 //		if(dto.getData() != null) {
 //		LocalDate localDate1 = LocalDate.parse(dto.getData(),dateTimeFormatter);
 		mclass.setDate(dto.getDate());
+		mclass.setVerifyDaily(dto.getVerifyDaily());
 //		}
 		return mclass;
 	}
@@ -34,6 +35,7 @@ public class MissedClassConverter extends EntityConverter<MissedClass,MissedClas
 //		if(entity.getData() != null) {
 //		String startDateString = entity.getData().format(formatter);
 		mclass.setDate(entity.getDate());
+		mclass.setVerifyDaily(entity.getVerifyDaily());
 //		}
 		return mclass;
 	}

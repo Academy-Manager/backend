@@ -3,9 +3,11 @@ package pt.upacademy.coreFinalProject.repositories.academyManager;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaQuery;
 
 import pt.upacademy.coreFinalProject.models.academyManager.MissedClass;
 import pt.upacademy.coreFinalProject.repositories.core.EntityRepository;
+import javax.persistence.criteria.CriteriaBuilder;
 
 public class MissedClassRepository extends EntityRepository<MissedClass> {
 
@@ -29,11 +31,8 @@ public class MissedClassRepository extends EntityRepository<MissedClass> {
 		return entityManager.createNamedQuery(MissedClass.GET_ALL_MISSEDCLASSES_BY_ID, getEntityClass()).setParameter("accountId", accountId).getResultList();
 	}
 
-	public List<MissedClass> getAllMissedByDate(long date) {
-		TypedQuery<MissedClass> query = entityManager.createQuery(" select m FROM MissedClass m where m.date LIKE :searchKeyword",getEntityClass());
-		return query.setParameter("searchKeyword", date+"%").getResultList();
-				
-//		return entityManager.createNamedQuery(MissedClass.GET_ALL_MISSEDCLASSES_BY_DATE, getEntityClass()).setParameter("date", date).getResultList();
+	public List<MissedClass> getAllMissedByDate(String verifyDaily) {
+			return entityManager.createNamedQuery(MissedClass.GET_ALL_MISSEDCLASSES_BY_DATE, getEntityClass()).setParameter("verifyDaily", verifyDaily).getResultList();
 	}
 
 	

@@ -114,6 +114,15 @@ public class AcademyDTO extends EntityDTO {
 	public void setAcademyType(String academyType) {
 		this.academyType = academyType;
 	}	//GONÇALO
+
+	@Override
+	public String toString() {
+		return "AcademyDTO [client=" + client + ", startDate=" + startDate + ", endDate=" + endDate + ", edName="
+				+ edName + ", moduleDTOs=" + moduleDTOs + ", studentsIds=" + studentsIds + ", status=" + status
+				+ ", warning=" + warning + ", usefulInfo=" + usefulInfo + ", academyType=" + academyType + "]";
+	}
+	
+	
 }
 
 	

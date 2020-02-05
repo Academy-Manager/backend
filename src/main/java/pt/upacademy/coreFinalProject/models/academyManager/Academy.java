@@ -137,6 +137,13 @@ public class Academy extends EntityRoot {
 		this.academyType = academyType;
 	}	//GONÇALO
 
+	@Override
+	public String toString() {
+		return "Academy [client=" + client + ", startDate=" + startDate + ", endDate=" + endDate + ", edName=" + edName
+				+ ", modules=" + modules + ", students=" + students + ", status=" + status + ", warning=" + warning
+				+ ", usefulInfo=" + usefulInfo + ", academyType=" + academyType + "]";
+	}
+
 }
 
 	
