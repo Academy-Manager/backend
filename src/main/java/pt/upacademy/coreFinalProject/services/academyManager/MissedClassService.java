@@ -12,8 +12,8 @@ import pt.upacademy.coreFinalProject.services.core.EntityService;
 public class MissedClassService extends EntityService<MissedClassRepository,MissedClass>{
 
 	
-	public void addMissedClass(MissedClass mclass) {
-		repository.addEntity(mclass);
+	public long addMissedClass(MissedClass mclass) {
+		return repository.addEntity(mclass);
 	}
 
 	public List<MissedClass> getAllMissedById(int accountId) {

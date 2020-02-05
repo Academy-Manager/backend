@@ -31,8 +31,7 @@ public class MissedClassController extends EntityControllerDTO<MissedClassServic
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response addMissedClass(MissedClassDTO mclass) {
 		try {
-			service.addMissedClass(converter.toEntity(mclass));
-			return Response.ok().build();
+			return Response.ok().entity(service.addMissedClass(converter.toEntity(mclass))).build();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return Response.status(400).entity(e.getMessage()).build(); 
