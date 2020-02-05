@@ -5,7 +5,7 @@ import pt.upacademy.coreFinalProject.models.core.DTOS.EntityDTO;
 public class MissedClassDTO extends EntityDTO {
 
 	private int accountId;
-	private String data;
+	private long date;
 	private Boolean justified;
 	
 	
@@ -16,11 +16,11 @@ public class MissedClassDTO extends EntityDTO {
 	public void setAccountId(int accountId) {
 		this.accountId = accountId;
 	}
-	public String getData() {
-		return data;
+	public long getDate() {
+		return date;
 	}
-	public void setData(String data) {
-		this.data = data;
+	public void setDate(long date) {
+		this.date = date;
 	}
 	public Boolean getJustified() {
 		return justified;
@@ -36,15 +36,15 @@ public class MissedClassDTO extends EntityDTO {
 	}
 	
 	
-	public MissedClassDTO(int userId, String data, Boolean justified) {
+	public MissedClassDTO(int userId, long date, Boolean justified) {
 		super();
 		this.accountId = userId;
-		this.data = data;
+		this.date = date;
 		this.justified = justified;
 	}
 	@Override
 	public String toString() {
-		return "MissedClassDTO [userId=" + accountId + ", data=" + data + ", justified=" + justified + "]";
+		return "MissedClassDTO [userId=" + accountId + ", data=" + date + ", justified=" + justified + "]";
 	}
 	
 	
